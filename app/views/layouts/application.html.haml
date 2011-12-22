@@ -1,0 +1,25 @@
+!!! 5
+%html{html_attrs}
+  %head
+    = csrf_meta_tag
+    %title= (title = yield(:title).strip).present? ? title : "Seedly"
+    %meta{:name => 'description', :content => 'Seedly helps gardeners succeed.'}
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+
+  %body
+    .topbar
+      .fill
+        .container
+          %a.brand Seedly
+          %ul.nav
+            
+    .container
+      - if flash.any?
+        - flash.each do |type, message|
+          %div(class="alert-message #{type}")= message
+
+      = yield
+      %footer
+        %p 
+          
