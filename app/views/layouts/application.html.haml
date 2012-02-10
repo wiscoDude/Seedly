@@ -6,20 +6,19 @@
     %meta{:name => 'description', :content => 'Seedly helps gardeners succeed.'}
     = stylesheet_link_tag    "application"
     = javascript_include_tag "application"
+    <link href='http://fonts.googleapis.com/css?family=Josefin+Slab' rel='stylesheet' type='text/css'>
 
   %body
-    .topbar
-      .fill
-        .container
-          %a.brand Seedly
-          %ul.nav
+    #content
+      #header
+        = render 'shared/header'
             
-    .container
-      - if flash.any?
-        - flash.each do |type, message|
-          %div(class="alert-message #{type}")= message
+      #container
+        - if flash.any?
+          - flash.each do |type, message|
+            %div(class="alert-message #{type}")= message
 
-      = yield
-      %footer
-        %p 
+        = yield
+      #footer
+        = render 'shared/footer'
           

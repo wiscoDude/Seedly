@@ -2,7 +2,44 @@
  * This is a manifest file that'll automatically include all the stylesheets available in this directory
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require bootstrap
  *= require_self
  *= require_tree .
- *= require bootstrap
 */
+
+#content {
+	background-image: url('https://seedly.s3.amazonaws.com/beets_header.png');
+	background-repeat:no-repeat;
+	background-position:500px 0px; 
+	margin: 0 auto; 
+	width: 900px;
+	}
+body {
+  background-color: #EFE5AD;
+  font-family: 'Josefin Slab', serif;
+}
+p {
+	font-size: 15px;
+}
+table.main tr td {
+	border:none;
+	vertical-align: middle;
+	font-size: 22px;
+	padding: 0;
+}
+.heading {
+	padding: 20px 0 30px 22px;
+}
+.heading .main
+  {
+	line-height: 26px;
+	font-size: 26px;
+}
+.heading .sub  
+	{
+	line-height: 22px;
+	font-size: 20px;
+}
+#header {
+	padding-bottom: 25px;
+}
