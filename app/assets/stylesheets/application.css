@@ -19,7 +19,9 @@ body {
   font-family: 'Josefin Slab', serif;
 }
 p {
-	font-size: 15px;
+	font-size: 16px;
+	line-height: 20px;
+	margin-bottom: 10px;
 }
 
 /* Header */
@@ -38,6 +40,7 @@ table.main tr td {
 	border:none;
 	vertical-align: middle;
 	font-size: 22px;
+	line-height: 26px;
 	padding: 0;
 }
 .heading {
