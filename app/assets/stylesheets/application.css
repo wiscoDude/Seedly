@@ -21,6 +21,19 @@ body {
 p {
 	font-size: 15px;
 }
+
+/* Header */
+.menu {
+	right:0;
+	top: 40px;
+	position:absolute;
+}
+
+/* Home page */
+/* red: D8592E
+   orange: D79642
+   green: 88A13B
+*/
 table.main tr td {
 	border:none;
 	vertical-align: middle;
