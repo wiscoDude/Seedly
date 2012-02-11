@@ -8,7 +8,7 @@
 */
 
 #content {
-	background-image: url('https://seedly.s3.amazonaws.com/beets_header.png');
+	background-image: url('https://seedly.s3.amazonaws.com/beet_header_medium.png');
 	background-repeat:no-repeat;
 	background-position:500px 0px; 
 	margin: 0 auto; 
@@ -28,7 +28,7 @@ table.main tr td {
 	padding: 0;
 }
 .heading {
-	padding: 20px 0 30px 22px;
+	padding: 20px 0 20px 22px;
 }
 .heading .main
   {
@@ -43,3 +43,22 @@ table.main tr td {
 #header {
 	padding-bottom: 25px;
 }
+
+/* choose kits */
+.kit {
+	padding: 10px 0 20px 0;
+}
+.kit .body {
+	background-color: white;
+}
+.kit .body .choose img {
+	padding-top: 15px;
+	margin-right: -5px;
+	float:right;
+}
+.kit .body img.main {
+	padding-left: 20px;
+}
+.kit .name {
+	font-size: 24px;
+} 

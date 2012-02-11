@@ -2,7 +2,7 @@ class ContentController < ApplicationController
   def index
   end
   
-  def about_kits
+  def choose_kit
   end
   
   def about
