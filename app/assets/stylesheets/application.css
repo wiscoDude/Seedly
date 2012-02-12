@@ -10,9 +10,9 @@
 #content {
 	background-image: url('https://seedly.s3.amazonaws.com/beet_header_medium.png');
 	background-repeat:no-repeat;
-	background-position:500px 0px; 
+	background-position:600px 0px; 
 	margin: 0 auto; 
-	width: 900px;
+	width: 1000px;
 	}
 body {
   background-color: #EFE5AD;
@@ -35,6 +35,7 @@ p {
 /* red: D8592E
    orange: D79642
    green: 88A13B
+   brown: 62403B
 */
 table.main tr td {
 	border:none;
