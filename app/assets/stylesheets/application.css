@@ -6,7 +6,6 @@
  *= require_self
  *= require_tree .
 */
-@import url(http://fonts.googleapis.com/css?family=Josefin+Slab);
 
 #content {
 	background-image: url('https://seedly.s3.amazonaws.com/beet_header_medium.png');
