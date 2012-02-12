@@ -15,7 +15,7 @@
 	width: 1000px;
 	}
 body {
-  background-color: #EFE5AD;
+  background-color: #EFE7AB; 
   font-family: 'Josefin Slab', serif;
 }
 p {
@@ -37,6 +37,14 @@ p {
    green: 88A13B
    brown: 62403B
 */
+
+table.main tr td {
+  width: 350px;
+  margin-bottom: -20px;
+}
+table.main {
+	width:700px;
+}
 table.main tr td {
 	border:none;
 	vertical-align: middle;
@@ -49,8 +57,9 @@ table.main tr td {
 }
 .heading .main
   {
-	line-height: 26px;
-	font-size: 26px;
+	line-height: 30px;
+	font-size: 32px;
+	font-weight: 500;
 }
 .heading .sub  
 	{
