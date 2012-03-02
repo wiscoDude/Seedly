@@ -1,7 +1,7 @@
 %ul.nav
-  %li.red= link_to "Choose Your Kit", choose_kit_path
-  %li.orange= link_to "How This Works", how_works_path
-  %li.green= link_to "About Us", about_path
+  %li{:class => controller.action_name == 'choose_kit' ? 'selected' : ''}= link_to "Choose Your Kit", choose_kit_path
+  %li{:class => controller.action_name == 'how_this_works' ? 'selected' : ''}= link_to "How This Works", how_works_path
+  %li{:class => controller.action_name == 'about' ? 'selected' : ''}= link_to "About Us", about_path
   /.item
   /= link_to "FAQ", how_works_path
 
