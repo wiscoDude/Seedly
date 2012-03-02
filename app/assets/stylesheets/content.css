@@ -103,14 +103,8 @@ table.main tr td {
 }
 .heading .main
   {
-	line-height: 30px;
-	font-size: 32px;
+	font-size: 1.6em;
 	font-weight: 500;
-}
-.heading .sub  
-	{
-	line-height: 22px;
-	font-size: 20px;
 }
 
 /* choose kits */
