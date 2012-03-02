@@ -1,35 +1,39 @@
-%h1 Choose your kit
+.content_container
+  %h1 Choose your kit
+  %p
+    Each kit includes seeds, soil amendments, garden cover, a gardening tool, and the personalized information to help you succeed.  If you're unsure about the kit for your growing conditions, contact us at: 
+    = mail_to "info@seedly.me", "info@seedly.me"
 
-.kit
-  .name
-    Super Foods
-  .body
-    .choose
-      = link_to image_tag("https://seedly.s3.amazonaws.com/pick_me.png"), "http://shop.seedly.me/?p=detail&pid=1"
-    .image
-      = image_tag("https://seedly.s3.amazonaws.com/super_foods_kit.png", :class => "main")
-    %p
-      Three of the most nutrient-rich, immune-boosting, antioxident-full vegetables around. 
+  .kit
+    .name
+      Super Foods
+    .body
+      .choose
+        = link_to image_tag("https://seedly.s3.amazonaws.com/pick_me.png"), "http://shop.seedly.me/?p=detail&pid=1"
+      .image
+        = image_tag("https://seedly.s3.amazonaws.com/super_foods_kit.png", :class => "main")
+      %p
+        Three of the most nutrient-rich, immune-boosting, antioxident-full vegetables around. 
 
 
-.kit
-  .name
-    Salad Mix
-  .body
-    .choose
-      = link_to image_tag("https://seedly.s3.amazonaws.com/pick_me.png"), "http://shop.seedly.me/?p=detail&pid=2"
-    .image
-      = image_tag("https://seedly.s3.amazonaws.com/salad_kit.png", :class => "main")
-    %p
-      With plenty of phytonutrients and vitamins A and C, you can’t go wrong with this early-season, small-space friendly choice. 
+  .kit
+    .name
+      Salad Mix
+    .body
+      .choose
+        = link_to image_tag("https://seedly.s3.amazonaws.com/pick_me.png"), "http://shop.seedly.me/?p=detail&pid=2"
+      .image
+        = image_tag("https://seedly.s3.amazonaws.com/salad_kit.png", :class => "main")
+      %p
+        With plenty of phytonutrients and vitamins A and C, you can’t go wrong with this early-season, small-space friendly choice. 
       
-.kit
-  .name
-    Three Sisters
-  .body
-    .choose
-      = link_to image_tag("https://seedly.s3.amazonaws.com/pick_me.png"), "http://shop.seedly.me/?p=detail&pid=3"
-    .image
-      = image_tag("https://seedly.s3.amazonaws.com/three_sisters_kit.png", :class => "main")
-    %p
-      Planted by Native Americans, this is a sophisticated, sustainable system that provides long-term soil fertility and a healthy diet.
+  .kit
+    .name
+      Three Sisters
+    .body
+      .choose
+        = link_to image_tag("https://seedly.s3.amazonaws.com/pick_me.png"), "http://shop.seedly.me/?p=detail&pid=3"
+      .image
+        = image_tag("https://seedly.s3.amazonaws.com/three_sisters_kit.png", :class => "main")
+      %p
+        Planted by Native Americans, this is a sophisticated, sustainable system that provides long-term soil fertility and a healthy diet.

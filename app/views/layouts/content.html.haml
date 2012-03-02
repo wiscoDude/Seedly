@@ -3,8 +3,8 @@
   %head
     = csrf_meta_tag
     %title= (title = yield(:title).strip).present? ? title : "Seedly"
-    %meta{:name => 'description', :content => 'Plant a possibility.'}
-    = stylesheet_link_tag    "application"
+    %meta{:name => 'description', :content => 'Tthe Simon Says of gardening (just follow along). Kits and personalized information to help the beginning gardener succeed.'}
+    = stylesheet_link_tag    "content"
     = javascript_include_tag "application"
     = favicon_link_tag
     <link href='http://fonts.googleapis.com/css?family=Josefin+Slab' rel='stylesheet' type='text/css'>
@@ -15,14 +15,21 @@
   %body
     #content
       #header
-        = render 'shared/header'
+        .content
+          = render 'shared/header'
+      #topcontent
+        .content
+          = yield :top_content
+        
             
-      #app_container
-        - if flash.any?
-          - flash.each do |type, message|
-            %div(class="alert-message #{type}")= message
+      #main
+        .content
+          - if flash.any?
+            - flash.each do |type, message|
+              %div(class="alert-message #{type}")= message
 
-        = yield
+          = yield
       #footer
-        = render 'shared/footer'
+        .content
+          = render 'shared/footer'
           
