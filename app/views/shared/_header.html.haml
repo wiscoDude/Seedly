@@ -1,3 +1,12 @@
+
+#meta
+  = link_to "sign in", new_user_session_path
+  &nbsp;
+  = link_to "register your kit", new_user_registration_path
+
+.logo
+  = link_to image_tag("https://seedly.s3.amazonaws.com/logo.png"), "/"
+  
 %ul.nav
   %li{:class => controller.action_name == 'choose_kit' ? 'selected' : ''}= link_to "Choose Your Kit", choose_kit_path
   %li{:class => controller.action_name == 'how_this_works' ? 'selected' : ''}= link_to "How This Works", how_works_path
@@ -5,10 +14,4 @@
   /.item
   /= link_to "FAQ", how_works_path
 
-.logo
-  = link_to image_tag("https://seedly.s3.amazonaws.com/logo.png"), "/"
 
-.heading
-  .main
-  .sub
-    

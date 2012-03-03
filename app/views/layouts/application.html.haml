@@ -13,16 +13,15 @@
     <link rel="image_src" href="https://seedly.s3.amazonaws.com/kale.png" / >
 
   %body
-    #content
-      #header
-        = render 'shared/header'
+    = render 'shared/app_header'
             
-      #app_container
+    .container
+      .content
         - if flash.any?
           - flash.each do |type, message|
             %div(class="alert-message #{type}")= message
 
         = yield
-      #footer
-        = render 'shared/footer'
+      %footer
+        = render 'shared/app_footer'
           

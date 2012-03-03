@@ -1,0 +1,9 @@
+.topbar
+  .fill
+    .container
+      %a{:class => "brand", :href => ""} Seedly
+      %ul(class="nav")
+        %li(class="#{controller.action_name == 'dashboard' ? 'selected' : ''}")
+          %a(href = "/dashboard") Dashbaord
+        %li
+          %a(href = "/") Contact

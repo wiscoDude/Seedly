@@ -17,6 +17,8 @@ Seedly::Application.routes.draw do
     get 'signout' => 'devise/sessions#destroy', :as => :destroy_user_session
   end
   
+  match 'dashboard' => 'users#dashboard', :as => 'user_root'
+  
   root :to => 'content#index'
   match "/choose_kit" => "content#choose_kit", :as => "choose_kit"
   match "/about" => "content#about", :as => "about"
