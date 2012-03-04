@@ -21,6 +21,7 @@
   -moz-border-radius:4px;
   -webkit-border-radius:4px;
 }
+.content_container p {width: 90%;}
 #header {background-color: #DFFCFF; height: 125px;}
 footer {background-image: url('/images/top_bg.png');  height: 100px;padding: 30px 0 0 0;color:white;}
 footer a {color: #EFE7AB;}
@@ -46,7 +47,7 @@ p {
 
 /* Header */
 .logo {padding-top: 5px; float: left;}
-#meta {float:right; font-size: 15px; color: #333; padding: 4px 15px 0 0;}
+#meta {float:right; font-size: 15px; color: #333; padding: 4px 15px 0 0; display: none;}
 #meta a {text-decoration: none;}
 ul.nav {float:right; margin-top: 55px;}
 ul.nav li {display:inline; padding-left: 5px;}
