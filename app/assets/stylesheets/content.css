@@ -1,4 +1,4 @@
-
+.clear {clear:both;}
 #topcontent {color:white; 
 	font-weight: 600; 
 	background-image: url('/images/top_bg.png'); 
@@ -20,19 +20,30 @@
 	border-radius:4px;
   -moz-border-radius:4px;
   -webkit-border-radius:4px;
+	font-size: 16px;
+	line-height: 20px;
+	margin-bottom: 10px;
 }
 .content_container p {width: 90%;}
+.content_container h2 {margin-bottom: 2px; color: #88A13B;}
+.content_container .profile {width: 700px;}
+.content_container img.photo {
+	border: 1px solid #cccccc;
+  padding: 6px;
+	border: solid 1px #CCC;
+	-moz-box-shadow: 3px 3px 0px #999;
+	-webkit-box-shadow: 3px 3px 0px #999;
+	box-shadow: 3px 3px 0px #999;
+	width: 75px;
+	height: 75px;
+	float:left;
+	margin-right: 15px;
+}
+
 #header {background-color: #DFFCFF; height: 115px;}
 footer {background-image: url('/images/top_bg.png');  height: 100px;padding: 30px 0 0 0;color:white;}
 footer a {color: #EFE7AB;}
-#content {
-	/*
-	background-image: url('https://seedly.s3.amazonaws.com/beet_header_medium.png');
-	background-repeat:no-repeat;
-	background-position:1200px 0px; 
-	*/
-	
-	}
+
 a {color: #374B7D;}
 body {
   background-color: #EFE7AB; 
