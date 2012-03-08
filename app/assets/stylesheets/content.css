@@ -60,9 +60,10 @@ p {
 .logo {padding-top: 5px; float: left;}
 #meta {float:right; font-size: 15px; color: #333; padding: 4px 15px 0 0; display: none;}
 #meta a {text-decoration: none;}
-ul.nav {float:right; margin-top: 55px;}
-ul.nav li {display:inline; padding-left: 5px;}
-ul.nav li a {
+.nav {float:right;}
+.nav ul {margin-top: 55px;}
+.nav ul li {display:inline; padding-left: 5px;}
+.nav ul li a {
 -moz-transition-property: background-color;
 -webkit-transition-property: background-color;
 -o-transition-property: background-color;
