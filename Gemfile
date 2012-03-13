@@ -6,16 +6,15 @@ gem 'pg'
 gem 'haml'
 gem 'jquery-rails'
 gem 'devise'
-gem 'simple_form'
-gem 'jquery-rails'
+gem 'httparty'
 gem 'haml-rails'
 gem 'sass-rails'
 gem 'bootstrap-sass'
+gem 'simple_form'
 
 group :assets do
   gem 'coffee-rails', '~> 3.1.1'
   gem 'uglifier', '>= 1.0.3'
-  gem 'bootstrap-sass'
 end
 
 group :development, :test do

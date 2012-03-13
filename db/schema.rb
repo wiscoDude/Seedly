@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120302223723) do
+ActiveRecord::Schema.define(:version => 20120313002539) do
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -40,5 +40,15 @@ ActiveRecord::Schema.define(:version => 20120302223723) do
   add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "weather_readings", :force => true do |t|
+    t.string   "postal_code"
+    t.datetime "recorded_at"
+    t.decimal  "maxtemp",       :precision => 5, :scale => 2
+    t.decimal  "mintemp",       :precision => 5, :scale => 2
+    t.decimal  "precipitation", :precision => 5, :scale => 2
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

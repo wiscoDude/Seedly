@@ -17,9 +17,7 @@
             
     .container
       .content
-        - if flash.any?
-          - flash.each do |type, message|
-            %div(class="alert-message #{type}")= message
+        =render :partial => "shared/flash_messages", :locals => {:flash => flash}
 
         = yield
       %footer
