@@ -1,2 +1,8 @@
 %h1
   Your Dashboard
+  
+%p
+  Weather lately
+  - @user.weather_reading.each do |reading|
+    %p= reading.recorded_at
+    %p= reading.maxtemp.to_s

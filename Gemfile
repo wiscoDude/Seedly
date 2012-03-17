@@ -11,6 +11,8 @@ gem 'haml-rails'
 gem 'sass-rails'
 gem 'bootstrap-sass'
 gem 'simple_form'
+gem 'delayed_job_active_record'
+gem 'sendgrid'
 
 group :assets do
   gem 'coffee-rails', '~> 3.1.1'
