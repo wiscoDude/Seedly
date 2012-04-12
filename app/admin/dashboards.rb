@@ -10,7 +10,7 @@ ActiveAdmin::Dashboards.build do
      section "Users" do
        ul do
          User.all.collect do |user|
-           li link_to(user.email, about_path)
+           li link_to(user.email, admin_user_path(user))
          end
        end
      end
