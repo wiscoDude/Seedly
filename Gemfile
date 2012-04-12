@@ -13,6 +13,9 @@ gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'delayed_job_active_record'
 gem 'sendgrid'
+gem 'activeadmin'
+gem "meta_search",    '>= 1.1.0.pre'
+
 
 group :assets do
   gem 'coffee-rails', '~> 3.1.1'
