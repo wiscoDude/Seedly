@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120412154010) do
+ActiveRecord::Schema.define(:version => 20120413143313) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -67,6 +67,13 @@ ActiveRecord::Schema.define(:version => 20120412154010) do
     t.integer  "growing_zone_id"
     t.string   "postal_code"
     t.string   "garden_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "growing_zone_zip_codes", :force => true do |t|
+    t.string   "postal_code"
+    t.string   "growing_zone_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
