@@ -9,8 +9,16 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me,
       :postal_code, :first_name, :last_name, :city, :state, :latitude, :longitude
       
+  def get_growing_zone
+    record = GrowingZoneZipCode.find_by_zip(self.postal_code)
+    record.growing_zone_name if record.present?
+  end
+  
   def get_weather_for_user_for_date(date)
-    reading = WeatherUnderground.get_weather_readings_for_day(date, self.postal_code)
+    existing = WeatherReading.find_by_postal_code_and_date(self.postal_code, date.to_date)
+    if existing.blank?
+      reading = WeatherUnderground.get_weather_readings_for_day(date, self.postal_code)
+    end
     reading.save if reading.present?
   end
   

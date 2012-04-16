@@ -17,4 +17,12 @@ class WeatherUnderground
       weather_reading
     end
   end
+  
+  def self.get_forecast_in_json(postal_code)
+    url = "#{API_URL}#{API_KEY}/forecast/q/#{postal_code}.json"
+    response = HTTParty.get(url)
+    
+    response["forecast"]["txt_forecast"]["forecastday"] if response["forecast"].present?
+    
+  end
 end
