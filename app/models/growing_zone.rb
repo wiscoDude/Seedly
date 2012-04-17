@@ -1,4 +1,5 @@
 class GrowingZone < ActiveRecord::Base
+  has_many :growing_zone_zip_codes, :foreign_key => "growing_zone_name", :primary_key => :name
   validates_presence_of :name
   
   def self.find_by_zip(postal_code)
