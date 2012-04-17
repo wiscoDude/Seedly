@@ -23,6 +23,8 @@ Seedly::Application.routes.draw do
   
   match 'dashboard' => 'users#dashboard', :as => 'user_root'
   
+  match '/zip/:postal_code', :to => 'postal_codes#show'
+  
   root :to => 'content#index'
   match "/choose_kit" => "content#choose_kit", :as => "choose_kit"
   match "/about" => "content#about", :as => "about"
