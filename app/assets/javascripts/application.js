@@ -7,3 +7,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(document).ready(function() {
+	$("#show_lookup_form").click(function() {
+    $('input[name=postal_code]').focus();
+  });
+});

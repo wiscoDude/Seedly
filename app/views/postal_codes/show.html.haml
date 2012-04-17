@@ -1,5 +1,16 @@
-Hello
-%p= "#{@postal_code.city.titleize}, #{@postal_code.state}"
 %p
-  Your growing zone is
-  = @growing_zone.name
+  Zip Code
+  = params[:postal_code]
+  = link_to "change", "#lookup", :"data-toggle" => "collapse", :"data-target" => "#lookup", :id => "show_lookup_form"
+#lookup.collapse
+  %form{:action => "/lookup_zip", :class => "form-inline"}
+    %input{:name => "postal_code", :type => :text, :class => "input-small", :placeholder => "enter zip", :value => params[:postal_code]}
+    %input{:type => :submit, :class => "btn"}
+- if @growing_zone.present?
+  %p= "#{@postal_code.city.titleize}, #{@postal_code.state}"
+  %p
+    Your growing zone is
+    = @growing_zone.name
+- else
+  %p
+    Hmmm, we couldn't find that zip code.
