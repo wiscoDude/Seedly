@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120417190828) do
+ActiveRecord::Schema.define(:version => 20120420215425) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -114,6 +114,8 @@ ActiveRecord::Schema.define(:version => 20120417190828) do
     t.string   "planting_depth"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "plant_type"
+    t.boolean  "container_capable"
   end
 
   create_table "postal_codes", :force => true do |t|
