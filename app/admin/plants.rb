@@ -2,7 +2,7 @@ ActiveAdmin.register Plant do
   index do
     column :name
     column :sun_requirements
-    column :ease_of_maintenance
+    column :difficulty
     column :plant_type
     column :container_capable
     
