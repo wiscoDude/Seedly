@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   end
   
   def get_weather_for_user_for_date(date)
-    existing = WeatherReading.find_by_postal_code_and_date(self.postal_code, date.to_date)
+    existing = WeatherReading.find_by_postal_code_and_recorded_at(self.postal_code, date.to_date)
     if existing.blank?
       reading = WeatherUnderground.get_weather_readings_for_day(date, self.postal_code)
     end
