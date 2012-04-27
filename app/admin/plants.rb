@@ -11,7 +11,7 @@ ActiveAdmin.register Plant do
     
     default_actions
   end
-  sidebar "times" do
+  sidebar "times", :only => [:edit, :show] do
     table_for plant.planting_times do |planting_time|
       column :season_type
       column :begin do |planting_time|
@@ -21,16 +21,5 @@ ActiveAdmin.register Plant do
         planting_time.ending_offset
       end
     end
-  end
-  show do
-    attributes_table *default_attribute_table_rows
-    
-    panel "Planting Times" do 
-      table_for plant.planting_times do |planting_time|
-        column :season_type
-        column :beginning_offset
-        column :ending_offset
-      end
-    end 
   end
 end
