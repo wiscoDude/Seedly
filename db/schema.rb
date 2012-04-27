@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120423230641) do
+ActiveRecord::Schema.define(:version => 20120426163109) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -88,16 +88,11 @@ ActiveRecord::Schema.define(:version => 20120423230641) do
   create_table "planting_times", :force => true do |t|
     t.integer  "plant_id"
     t.integer  "growing_zone_id"
-    t.string   "earliest_spring_inside"
-    t.string   "earliest_spring_outside"
-    t.string   "latest_spring_inside"
-    t.string   "latest_spring_outside"
-    t.string   "earliest_fall_inside"
-    t.string   "earliest_fall_outside"
-    t.string   "latest_fall_inside"
-    t.string   "latest_fall_outside"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.string   "time_type"
   end
 
   create_table "plants", :force => true do |t|
@@ -117,6 +112,7 @@ ActiveRecord::Schema.define(:version => 20120423230641) do
     t.string   "plant_type"
     t.boolean  "container_capable"
     t.string   "harvesting"
+    t.string   "drawing_image_url"
   end
 
   create_table "postal_codes", :force => true do |t|
@@ -125,6 +121,16 @@ ActiveRecord::Schema.define(:version => 20120423230641) do
     t.string   "city"
     t.float    "latitude"
     t.float    "longitude"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "recipes", :force => true do |t|
+    t.string   "plant_id"
+    t.string   "name"
+    t.string   "description"
+    t.string   "url"
+    t.string   "recipe_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -14,14 +14,9 @@ ActiveAdmin.register Plant do
     panel "Planting Times" do 
       table_for plant.planting_times do |planting_time|
         column :growing_zone, sortable: 'planting_time.growing_zone.name'
-        column :earliest_spring_inside
-        column :earliest_spring_outside
-        column :latest_spring_inside
-        column :latest_spring_outside
-        column :earliest_fall_inside
-        column :earliest_fall_outside
-        column :latest_fall_inside
-        column :latest_fall_outside
+        column :time_type
+        column :start_date
+        column :end_date
       end
     end 
   end

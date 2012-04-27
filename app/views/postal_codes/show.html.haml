@@ -14,3 +14,15 @@
 - else
   %p
     Hmmm, we couldn't find that zip code.
+    
+- if @planting_times.present?
+  %p This week you can...
+  - @planting_times.group_by(&:time_type).each do |time_type, planting_times|
+    %h3= planting_times.first.type_of_planting
+    - planting_times.each do |planting_time|
+      .plant
+        = image_tag(planting_time.plant.drawing_image_url)
+        %p
+          %b= planting_time.plant.name
+%p  
+  = WeatherUnderground.get_forecast_in_json(params[:postal_code])
