@@ -21,5 +21,6 @@ ActiveAdmin.register Plant do
         planting_time.ending_offset
       end
     end
+    link_to "Add Planting Time", "/admin/planting_times/new"
   end
 end
