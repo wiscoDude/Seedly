@@ -7,6 +7,14 @@ class PlantingTime < ActiveRecord::Base
   validates_uniqueness_of :plant_id, :scope => [:season_type]
   validate :season_type, :inclusion => { :in => proc { PlantingTime.season_types } }
   
+
+  def self.find_all_by_growing_zone_and_date(growing_zone, date)
+    PlantingTime.find(:all, :conditions => "(#{growing_zone.last_frost.to_date} + beginning_offset <= #{date}  AND \
+    #{growing_zone.last_frost.to_date} + ending_offset >= #{date}) OR
+    (#{growing_zone.first_frost.to_date} + beginning_offset <= #{date}  AND \
+    #{growing_zone.first_frost.to_date} + ending_offset >= #{date})")
+  end
+  
   def self.season_types
     ["spring_inside", "spring_outside", "fall_inside", "fall_outside"]
   end
