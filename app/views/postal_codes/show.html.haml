@@ -25,4 +25,10 @@
         %p
           %b= planting_time.plant.name
 %p  
-  = WeatherUnderground.get_forecast_in_json(params[:postal_code])
+  - forecast = WeatherUnderground.get_forecast_in_json(params[:postal_code])
+%h3="Weather Forecast for #{@postal_code.city.titleize}"
+- forecast.each do |day|
+  .day{:style => 'display:inline-block; border: 1px solid #ddd; padding: 2px;'}
+    = image_tag(day["icon_url"], :title => day["fcttext"])
+    %p= day["title"]
+    %p= "#{day["pop"]}% chance"
