@@ -5,3 +5,21 @@
  *= require bootstrap
  *= require_self
 */
+
+.plant {
+	
+}
+.plant img.drawing {
+	height: 70px;
+	width: 100px;
+	float: left;
+}
+.clear {
+	clear: both;
+}
+
+.forecast .day {
+	display:inline-block; 
+	border: 1px solid #ddd; 
+	padding: 2px;
+}

@@ -9,10 +9,15 @@ class PlantingTime < ActiveRecord::Base
   
 
   def self.find_all_by_growing_zone_and_date(growing_zone, date)
-    PlantingTime.find(:all, :conditions => "(#{growing_zone.last_frost.to_date} + beginning_offset <= #{date}  AND \
-    #{growing_zone.last_frost.to_date} + ending_offset >= #{date}) OR
-    (#{growing_zone.first_frost.to_date} + beginning_offset <= #{date}  AND \
-    #{growing_zone.first_frost.to_date} + ending_offset >= #{date})")
+    PlantingTime.find(:all, :conditions => \
+    "(('#{growing_zone.last_frost.to_date}'::date + beginning_offset) \
+     <= '#{date}'::date AND \
+    ('#{growing_zone.last_frost.to_date}'::date + ending_offset) >= \
+    '#{date}'::date) OR \
+    (('#{growing_zone.first_frost.to_date}'::date + beginning_offset) \
+     <= '#{date}'::date  AND \
+    ('#{growing_zone.first_frost.to_date}'::date + ending_offset) >= \
+    '#{date}'::date)")
   end
   
   def self.season_types

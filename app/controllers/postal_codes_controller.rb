@@ -8,6 +8,7 @@ class PostalCodesController < ApplicationController
     zip = params[:postal_code]
     @postal_code = PostalCode.find_by_postal_code(zip)
     @growing_zone = GrowingZone.find_by_zip(zip)
-    @planting_times = PlantingTime.find_all_by_growing_zone_and_date(@growing_zone, Time.now.to_date)
+    date = params[:date].present? ? Date.strptime(params[:date], '%m/%d') : Time.now.to_date
+    @planting_times = PlantingTime.find_all_by_growing_zone_and_date(@growing_zone, date)
   end
 end

@@ -21,14 +21,19 @@
     %h3= planting_times.first.description_of_season
     - planting_times.each do |planting_time|
       .plant
-        = image_tag(planting_time.plant.drawing_image_url)
-        %p
-          %b= planting_time.plant.name
+        = image_tag(planting_time.plant.drawing_image_url, :class => 'drawing')
+        .name= planting_time.plant.name
+        .difficulty= planting_time.plant.difficulty
+        .container= planting_time.plant.container_capable
+        .sunlight= image_tag(planting_time.plant.sun_requirements_icon)
+.clear
 %p  
   - forecast = WeatherUnderground.get_forecast_in_json(params[:postal_code])
 %h3="Weather Forecast for #{@postal_code.city.titleize}"
-- forecast.each do |day|
-  .day{:style => 'display:inline-block; border: 1px solid #ddd; padding: 2px;'}
-    = image_tag(day["icon_url"], :title => day["fcttext"])
-    %p= day["title"]
-    %p= "#{day["pop"]}% chance"
+.forecast
+  - if forecast.present?
+    - forecast.each do |day|
+      .day
+        = image_tag(day["icon_url"], :title => day["fcttext"])
+        %p= day["title"]
+        %p= "#{day["pop"]}% chance"
