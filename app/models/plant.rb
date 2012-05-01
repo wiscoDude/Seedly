@@ -9,9 +9,9 @@ class Plant < ActiveRecord::Base
   
   def sun_requirements_icon
     case
-    when self.sun_requirements.include?("sunny")
+    when self.sun_requirements.include?("Full Sun")
       "https://seedly.s3.amazonaws.com/full-sun.gif"
-    when self.sun_requirements.include?("partial sun")
+    when self.sun_requirements.include?("Full to Partial Sun")
       "https://seedly.s3.amazonaws.com/partial-sun.gif"
     else
     end
