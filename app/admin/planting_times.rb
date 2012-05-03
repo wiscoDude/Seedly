@@ -10,7 +10,7 @@ ActiveAdmin.register PlantingTime do
   form do |f|
     f.inputs "Details" do
       f.input :plant
-      f.input :season_type, :collection => PlantingTime.season_types
+      f.input :season_type, :collection => PlantingTime::SEASON_TYPES
       f.input :beginning_offset
       f.input :ending_offset
       f.buttons

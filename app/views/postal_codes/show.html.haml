@@ -1,39 +1,40 @@
+- date = params[:date].present? ? @date.strftime("%A, %b #{@date.day.ordinalize}") : "This week"
+- if @postal_code.present?
+  %h2
+    ="#{date} in #{@postal_code.city.titleize} you can..."
 %p
   Zip Code
   = params[:postal_code]
-  = link_to "change", "#lookup", :"data-toggle" => "collapse", :"data-target" => "#lookup", :id => "show_lookup_form"
+  = link_to "change", "#", :"data-toggle" => "collapse", :"data-target" => "#lookup", :id => "show_lookup_form"
 #lookup.collapse
   %form{:action => "/lookup_zip", :class => "form-inline"}
     %input{:name => "postal_code", :type => :text, :class => "input-small", :placeholder => "enter zip", :value => params[:postal_code]}
     %input{:type => :submit, :class => "btn"}
-- if @growing_zone.present?
-  %p= "#{@postal_code.city.titleize}, #{@postal_code.state}"
-  %p
-    Your growing zone is
-    = @growing_zone.name
-- else
+- if @growing_zone.blank? || @postal_code.blank?
   %p
     Hmmm, we couldn't find that zip code.
-    
-- if @planting_times.present?
-  %p This week you can...
-  - @planting_times.group_by(&:season_type).each do |season_type, planting_times|
-    %h3= planting_times.first.description_of_season
-    - planting_times.each do |planting_time|
-      .plant
-        = image_tag(planting_time.plant.drawing_image_url, :class => 'drawing')
-        .name= planting_time.plant.name
-        .difficulty= planting_time.plant.difficulty
-        .container= planting_time.plant.container_capable
-        .sunlight= image_tag(planting_time.plant.sun_requirements_icon)
-.clear
-%p  
-  - forecast = WeatherUnderground.get_forecast_in_json(params[:postal_code])
-%h3="Weather Forecast for #{@postal_code.city.titleize}"
-.forecast
-  - if forecast.present?
-    - forecast.each do |day|
-      .day
-        = image_tag(day["icon_url"], :title => day["fcttext"])
-        %p= day["title"]
-        %p= "#{day["pop"]}% chance"
+- else
+
+  - if @planting_times.present?
+    - @planting_times.group_by(&:season_type).each do |season_type, planting_times|
+      %h3= planting_times.first.description_of_season
+      - planting_times.each do |planting_time|
+        .plant{:class => [planting_time.plant.sun_requirements, planting_time.plant.difficulty]}
+          = image_tag(planting_time.plant.drawing_image_url, :class => 'drawing')
+          .name= planting_time.plant.name
+          .difficulty= planting_time.plant.difficulty
+          .container
+            - if planting_time.plant.container_capable
+              = image_tag("https://seedly.s3.amazonaws.com/potted_plant.jpg")
+          .sunlight= image_tag(planting_time.plant.sun_requirements_icon)
+  .clear
+  %p  
+    - forecast = WeatherUnderground.get_forecast_in_json(params[:postal_code])
+  %h3="Weather Forecast for #{@postal_code.city.titleize}"
+  .forecast
+    - if forecast.present?
+      - forecast.each do |day|
+        .day
+          = image_tag(day["icon_url"], :title => day["fcttext"])
+          %p= day["title"]
+          %p= "#{day["pop"]}% chance"
