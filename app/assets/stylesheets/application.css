@@ -6,6 +6,21 @@
  *= require_self
 */
 
+.plant {
+	padding: 3px;
+}
+.plant .image {
+	display: inline-block;
+	width: 150px;
+}
+.plant .details {
+	display: inline-block;
+	width: 300px;
+}
+.plant .details .item {
+	display: inline-block;
+	width: 50px;
+}
 .plant .name {
 	font-size: 16px;
 	font-weight: bold;
@@ -13,7 +28,6 @@
 .plant img.drawing {
 	height: 70px;
 	width: 100px;
-	float: left;
 }
 .clear {
 	clear: both;

@@ -20,13 +20,15 @@
       %h3= planting_times.first.description_of_season
       - planting_times.each do |planting_time|
         .plant{:class => [planting_time.plant.sun_requirements, planting_time.plant.difficulty]}
-          = image_tag(planting_time.plant.drawing_image_url, :class => 'drawing')
           .name= planting_time.plant.name
-          .difficulty= planting_time.plant.difficulty
-          .container
-            - if planting_time.plant.container_capable
-              = image_tag("https://seedly.s3.amazonaws.com/potted_plant.jpg")
-          .sunlight= image_tag(planting_time.plant.sun_requirements_icon)
+          .image
+            = image_tag(planting_time.plant.drawing_image_url, :class => 'drawing')
+          .details
+            .item= planting_time.plant.difficulty
+            .item= image_tag(planting_time.plant.sun_requirements_icon)
+            .item
+              - if planting_time.plant.container_capable
+                = image_tag("https://seedly.s3.amazonaws.com/potted_plant.jpg")
   .clear
   %p  
     - forecast = WeatherUnderground.get_forecast_in_json(params[:postal_code])
