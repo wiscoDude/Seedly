@@ -15,4 +15,13 @@ class Plant < ActiveRecord::Base
     else
     end
   end
+  def difficulty_icon
+    case
+    when self.difficulty.include?("easy")
+      "https://seedly.s3.amazonaws.com/simple.png"
+    when self.difficulty.include?("hard")
+      "https://seedly.s3.amazonaws.com/complex.png"
+    else
+    end
+  end
 end

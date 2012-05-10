@@ -19,7 +19,11 @@
 }
 .plant .details .item {
 	display: inline-block;
-	width: 50px;
+	width: 30px;
+}
+.plant .details .item img {
+	width: 25px;
+	height: 25px;
 }
 .plant .name {
 	font-size: 16px;

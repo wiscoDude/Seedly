@@ -2,29 +2,40 @@
 - if @postal_code.present?
   %h2
     ="#{date} in #{@postal_code.city.titleize} you can..."
-%p
-  Zip Code
-  = params[:postal_code]
-  = link_to "change", "#", :"data-toggle" => "collapse", :"data-target" => "#lookup", :id => "show_lookup_form"
-#lookup.collapse
-  %form{:action => "/lookup_zip", :class => "form-inline"}
+- if @postal_code.present?
+  %p
+    Zip Code
+    = params[:postal_code]
+    = link_to "change", "#", :"data-toggle" => "collapse", :"data-target" => "#lookup", :id => "show_lookup_form"
+#lookup{:class => @postal_code.blank? ? '' : 'collapse'}
+  %form{:action => "/lookup_zip", :class => "well form-inline"}
+    Your zip
     %input{:name => "postal_code", :type => :text, :class => "input-small", :placeholder => "enter zip", :value => params[:postal_code]}
     %input{:type => :submit, :class => "btn"}
 - if @growing_zone.blank? || @postal_code.blank?
   %p
     Hmmm, we couldn't find that zip code.
 - else
-
+  %form{:action => "/users/simple_signup", :class => "form-inline"}
+    %label 
+      Free email reminders: 
+      %input{:name => "email", :type => :text, :class => "input-medium", :placeholder => "your email"}
+    %input{:type => "submit", :class => "btn", :value => "Remind Me"}
+    %input{:type => "hidden", :name => "zip", :value => params[:postal_code]}
+    .clear
+    %br
+    %label{:id => "show-container-only", :class => "checkbox"}
+      %input{:name => "container", :type => "checkbox", :id => "only-container"}
+      Show container plants only
   - if @planting_times.present?
     - @planting_times.group_by(&:season_type).each do |season_type, planting_times|
       %h3= planting_times.first.description_of_season
       - planting_times.each do |planting_time|
-        .plant{:class => [planting_time.plant.sun_requirements, planting_time.plant.difficulty]}
+        .plant{:class => [planting_time.plant.sun_requirements, planting_time.plant.difficulty, planting_time.plant.container_capable]}
           .name= planting_time.plant.name
           .image
             = image_tag(planting_time.plant.drawing_image_url, :class => 'drawing')
           .details
-            .item= planting_time.plant.difficulty
             .item= image_tag(planting_time.plant.sun_requirements_icon)
             .item
               - if planting_time.plant.container_capable

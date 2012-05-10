@@ -12,4 +12,14 @@ $(document).ready(function() {
 	$("#show_lookup_form").click(function() {
     $('input[name=postal_code]').focus();
   });
+	
+	$("#only-container").change(function() {
+		if($('#only-container').is(':checked'))
+		{
+		  $(".plant:not(.true)").hide('slow');
+		}
+		else {
+			$(".plant:not(.true)").show('slow');
+		}
+	});
 });
