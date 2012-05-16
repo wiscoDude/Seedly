@@ -1,32 +1,32 @@
 
-= content_for :top_content do
-  .heading
-    .main
-      Personalized gardening advice & reminders throughout the growing season. 
-      %br
-      %br
-      Think of us as the Simon Says of gardening (just follow along).
-%br
-    
-%table.main
-  %tr
-    %td.first
-      = image_tag("https://seedly.s3.amazonaws.com/diggin.jpg")
-    %td
-      After you purchase and register your Seedly garden kit, we'll ship your seeds (on seed strips!) when your growing zone is ready for planting.
-  %tr
-    %td
-      We send you personalized expert advice throughout the season.  You won't be overwhelmed as we'll send just what you need to know, just when you need to know it.
-    %td
-      = image_tag("https://seedly.s3.amazonaws.com/gettin_updates.jpg")
-  %tr
-    %td
-      = image_tag("https://seedly.s3.amazonaws.com/watering.jpg")
-    %td
-      We monitor your growing conditions and send you notifications about exactly what to do.  If you haven't had rain in a few days, we might give you a little nudge to water.
+.hero-unit
+  %h1.small The Easiest Way to Start a Garden
+  %br
+  %center
+    = render "postal_codes/zip_lookup"
 
-.center{:style => "margin: 0 auto; width: 800px"}
+%center
+  %h1 How Seedly Helps
+  
+  .step
+    = image_tag("https://seedly.s3.amazonaws.com/diggin.png")
+    %h3
+      We start by giving you short, specific directions for exactly what you need to do to prepare (or build) your raise beds or containers for gardening.
+    
+  .step
+    = image_tag("https://seedly.s3.amazonaws.com/gettin_updates.png")
+    %h3
+      Using your zip code, we send you personalized expert advice throughout the season.  You won't be overwhelmed as we'll send just what you need to know, just when you need to know it.
+  .step
+    = image_tag("https://seedly.s3.amazonaws.com/watering.png")
+    %h3
+      We even monitor your weather and send you notifications about when your plants are thirsty. 
+
+%center
   %h3
-    Ready to garden with Seedly?  Start by 
-    = link_to "choosing a kit »", choose_kit_path
+    And, Seedly is totally free.  Always will be.
+    %br
+    Start by entering your zip
+  #lookup
+    = render "postal_codes/zip_lookup"
 

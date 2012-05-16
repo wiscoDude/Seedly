@@ -8,13 +8,11 @@
     = params[:postal_code]
     = link_to "change", "#", :"data-toggle" => "collapse", :"data-target" => "#lookup", :id => "show_lookup_form"
 #lookup{:class => @postal_code.blank? ? '' : 'collapse'}
-  %form{:action => "/lookup_zip", :class => "well form-inline"}
-    Your zip
-    %input{:name => "postal_code", :type => :text, :class => "input-small", :placeholder => "enter zip", :value => params[:postal_code]}
-    %input{:type => :submit, :class => "btn"}
+  = render "postal_codes/zip_lookup"
 - if @growing_zone.blank? || @postal_code.blank?
-  %p
-    Hmmm, we couldn't find that zip code.
+  - if params[:postal_code].present?
+    %p
+      Hmmm, we couldn't find that zip code.
 - else
   %form{:action => "/users/simple_signup", :class => "form-inline"}
     %label 
@@ -43,11 +41,14 @@
   .clear
   %p  
     - forecast = WeatherUnderground.get_forecast_in_json(params[:postal_code])
-  %h3="Weather Forecast for #{@postal_code.city.titleize}"
-  .forecast
-    - if forecast.present?
+  - if forecast.present?
+    %h3="Weather Forecast for #{@postal_code.city.titleize}"
+    .forecast
       - forecast.each do |day|
-        .day
-          = image_tag(day["icon_url"], :title => day["fcttext"])
-          %p= day["title"]
-          %p= "#{day["pop"]}% chance"
+        - if day["period"].even?
+          .day
+            %p
+              %b= day["title"]
+            = image_tag(day["icon_url"], :title => day["fcttext"])
+            %p= day["fcttext"]
+            

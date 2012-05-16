@@ -12,7 +12,7 @@ $(document).ready(function() {
 	$("#show_lookup_form").click(function() {
     $('input[name=postal_code]').focus();
   });
-	
+	('.weather-day-details').popover();
 	$("#only-container").change(function() {
 		if($('#only-container').is(':checked'))
 		{

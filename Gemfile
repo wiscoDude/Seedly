@@ -15,6 +15,7 @@ gem 'delayed_job_active_record'
 gem 'sendgrid'
 gem 'activeadmin'
 gem "meta_search",    '>= 1.1.0.pre'
+gem "airbrake"
 
 
 group :assets do

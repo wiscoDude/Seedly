@@ -38,7 +38,16 @@
 }
 
 .forecast .day {
-	display:inline-block; 
+	width: 200px;
 	border: 1px solid #ddd; 
-	padding: 2px;
+	padding: 8px;
 }
+
+.hero-unit h1.small {font-size: 50px;}
+.step {
+	display:inline-block;
+	width: 700px;
+	padding: 30px;
+	}
+.step img {width: 311px;height: 311px;float:left;margin-right: 50px;}
+.step h3 {margin: 40px;}
