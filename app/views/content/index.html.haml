@@ -5,8 +5,7 @@
   %center
     %form{:action => "/lookup_zip", :class => "form-inline"}
       %input{:name => "postal_code", :type => :text, :class => "input home", :placeholder => "your zip", :value => params[:postal_code]}
-      %input{:type => :submit, :class => "btn home"}
-
+      = submit_tag("Get Started &#187;".html_safe, options = {:class => "btn home"})
 %center
   %h1 How Seedly Helps
   
