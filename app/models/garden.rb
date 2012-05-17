@@ -1,4 +1,4 @@
-class Plant < ActiveRecord::Base
+class Garden < ActiveRecord::Base
   belongs_to :user
   
   validates_presence_of :user_id  
