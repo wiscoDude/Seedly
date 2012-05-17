@@ -3,7 +3,9 @@
   %h1.small The Easiest Way to Start a Garden
   %br
   %center
-    = render "postal_codes/zip_lookup"
+    %form{:action => "/lookup_zip", :class => "form-inline"}
+      %input{:name => "postal_code", :type => :text, :class => "input home", :placeholder => "your zip", :value => params[:postal_code]}
+      %input{:type => :submit, :class => "btn home"}
 
 %center
   %h1 How Seedly Helps
@@ -24,7 +26,7 @@
 
 %center
   %h3
-    And, Seedly is totally free.  Always will be.
+    Seedly is totally free.  Always will be.
     %br
     Start by entering your zip
   #lookup

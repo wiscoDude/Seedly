@@ -44,6 +44,13 @@
 }
 
 .hero-unit h1.small {font-size: 50px;}
+.hero-unit input.home {
+	font-size: 24px;
+line-height: 30px;
+}
+.hero-unit input[type='text'].home {
+height: 30px;
+}
 .step {
 	display:inline-block;
 	width: 700px;
