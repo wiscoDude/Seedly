@@ -46,7 +46,10 @@
 .hero-unit {
 	background-color: #89a02c;
 }
-.hero-unit h1.small {font-size: 50px; color: #F0E8A5;}
+.hero-unit h1.small {
+	font-size: 50px; 
+	color: #F0E8A5;
+}
 .hero-unit input.home {
 	font-size: 24px;
 line-height: 30px;
@@ -58,7 +61,7 @@ height: 30px;
 	display:inline-block;
 	width: 700px;
 	padding: 30px;
-	}
+}
 .step img {width: 311px;height: 311px;float:left;margin-right: 50px;}
 .step h3 {margin: 40px;}
 
