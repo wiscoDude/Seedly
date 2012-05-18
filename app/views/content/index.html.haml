@@ -3,8 +3,8 @@
   %h1.small The Easiest Way to Start a Garden
   %br
   %center
-    %form{:action => "/lookup_zip", :class => "form-inline"}
-      %input{:name => "postal_code", :type => :text, :class => "input home", :placeholder => "your zip", :value => params[:postal_code]}
+    %form{:action => "/lookup_zip", :class => "form-search"}
+      %input{:name => "postal_code", :type => :text, :class => "input home search-query", :placeholder => "your zip", :value => params[:postal_code]}
       = submit_tag("Get Started &#187;".html_safe, options = {:class => "btn home"})
 %center
   %h1 How Seedly Helps
@@ -12,7 +12,7 @@
   .step
     = image_tag("https://seedly.s3.amazonaws.com/diggin.png")
     %h3
-      We start by giving you short, specific directions for exactly what you need to do to prepare (or build) your raise beds or containers for gardening.
+      We start by giving you short, specific directions for exactly what you need to do to prepare raised beds or containers for gardening.
     
   .step
     = image_tag("https://seedly.s3.amazonaws.com/gettin_updates.png")
@@ -21,7 +21,7 @@
   .step
     = image_tag("https://seedly.s3.amazonaws.com/watering.png")
     %h3
-      We even monitor your weather and send you notifications about when your plants are thirsty. 
+      We even monitor your weather and send you notifications about when your plants might be thirsty. 
 
 %center
   %h3
