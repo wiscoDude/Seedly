@@ -9,10 +9,12 @@
 //= require_tree .
 
 $(document).ready(function() {
-	$("#show_lookup_form").click(function() {
-    $('input[name=postal_code]').focus();
-  });
-	('.weather-day-details').popover();
+	$('.show-plant-details').click(function() {
+		$(".plant-details .plant").hide();
+		var div = '#' + $(this).data('target');
+		$(div).show();
+		return false;
+	});
 	$("#only-container").change(function() {
 		if($('#only-container').is(':checked'))
 		{

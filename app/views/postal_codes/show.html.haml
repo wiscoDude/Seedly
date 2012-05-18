@@ -1,10 +1,10 @@
 - date = params[:date].present? ? @date.strftime("%A, %b #{@date.day.ordinalize}") : "This week"
 - if @postal_code.present?
   %h2
-    ="#{date} in #{@postal_code.city.titleize} you can..."
+    ="#{date} in #{@postal_code.city.titleize} you can plant..."
 - if @postal_code.present?
   %p
-    Zip Code
+    Your Zip
     = params[:postal_code]
     = link_to "change", "#", :"data-toggle" => "collapse", :"data-target" => "#lookup", :id => "show_lookup_form"
 #lookup{:class => @postal_code.blank? ? '' : 'collapse'}
@@ -15,30 +15,28 @@
       Hmmm, we couldn't find that zip code.
 - else
   %form{:action => "/users/simple_signup", :class => "form-inline"}
-    %label 
-      Free email reminders: 
-      %input{:name => "email", :type => :text, :class => "input-medium", :placeholder => "your email"}
-    %input{:type => "submit", :class => "btn", :value => "Remind Me"}
     %input{:type => "hidden", :name => "zip", :value => params[:postal_code]}
     .clear
     %br
     %label{:id => "show-container-only", :class => "checkbox"}
       %input{:name => "container", :type => "checkbox", :id => "only-container"}
       Show container plants only
-  - if @planting_times.present?
-    - @planting_times.group_by(&:season_type).each do |season_type, planting_times|
-      %h3= planting_times.first.description_of_season
-      - planting_times.each do |planting_time|
+  .plants-list
+    - if @planting_times.present?
+      - @planting_times.each do |planting_time|
         .plant{:class => [planting_time.plant.sun_requirements, planting_time.plant.difficulty, planting_time.plant.container_capable]}
           .name= planting_time.plant.name
           .image
             = image_tag(planting_time.plant.drawing_image_url, :class => 'drawing')
-          .details
-            .item= image_tag(planting_time.plant.sun_requirements_icon)
-            .item
-              - if planting_time.plant.container_capable
-                = image_tag("https://seedly.s3.amazonaws.com/potted_plant.jpg")
-  .clear
+          = link_to "details", "#", :"data-target" => "#{planting_time.plant.id}", :class => "show-plant-details"
+    %h4 Sign up Free
+    %label
+      %input{:name => "email", :type => :text, :class => "input-medium", :placeholder => "your email"}
+    %input{:type => "submit", :class => "btn", :value => "Signup!"}
+  .plant-details
+    - @planting_times.each do |planting_time|
+      .plant{:id => planting_time.plant.id}
+        .name= planting_time.plant.name
   %p  
     - forecast = WeatherUnderground.get_forecast_in_json(params[:postal_code])
   - if forecast.present?
@@ -51,4 +49,5 @@
               %b= day["title"]
             = image_tag(day["icon_url"], :title => day["fcttext"])
             %p= day["fcttext"]
+            %a{:href => "#", :rel => "popover", :"data-content" => day["fcttext"], :"data-original-title" => "Weather for #{day['title']}"} details
             

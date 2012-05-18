@@ -5,12 +5,32 @@
  *= require bootstrap
  *= require_self
 */
+.hidden {
+	display:none;
+}
+.plants-list {
+	display: inline-block;
+	width: 500px;
+}
+.plant-details {
+	display: inline-block;
+	width: 400px;
+	height: 400px;
+	border: 2px solid #efefef;
+}
 
+.plants-list .plant {
+	display:inline-block;
+	width: 120px;
+	padding: 4px;
+	border: 2px solid #F0E8A5;
+	border-radius: 4px;
+	margin: 2px;
+}
 .plant {
 	padding: 3px;
 }
 .plant .image {
-	display: inline-block;
 	width: 150px;
 }
 .plant .details {
@@ -42,7 +62,9 @@
 	border: 1px solid #ddd; 
 	padding: 8px;
 }
-
+.forecast p {
+	font-size: 11px;
+}
 .hero-unit {
 	background-color: #f0e8a5;
 }
