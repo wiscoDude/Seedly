@@ -30,10 +30,6 @@
           .image
             = image_tag(planting_time.plant.drawing_image_url, :class => 'drawing')
           = link_to "details", "#", :"data-target" => "#{planting_time.plant.id}", :class => "show-plant-details"
-    %h4 Sign up Free
-    %label
-      %input{:name => "email", :type => :text, :class => "input-medium", :placeholder => "your email"}
-      %input{:type => "submit", :class => "btn", :value => "Signup!"}
     .plant-details
       - unique_plants.each do |planting_time|
         .plant.hidden{:id => planting_time.plant.id}
@@ -44,6 +40,11 @@
             another paragraph
           %p
             And yet one more
+    %h4 Sign up Free
+    %label
+      %input{:name => "email", :type => :text, :class => "input-medium", :placeholder => "your email"}
+      %input{:type => "submit", :class => "btn", :value => "Signup!"}
+
   %p  
     - forecast = WeatherUnderground.get_forecast_in_json(params[:postal_code])
   - if forecast.present?
