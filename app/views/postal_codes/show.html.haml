@@ -21,9 +21,10 @@
     %label{:id => "show-container-only", :class => "checkbox"}
       %input{:name => "container", :type => "checkbox", :id => "only-container"}
       Show container plants only
-  .plants-list
-    - if @planting_times.present?
-      - @planting_times.uniq{|pt| pt.plant_id}.each do |planting_time|
+  - if @planting_times.present?
+    .plants-list
+      - unique_plants = @planting_times.uniq{|pt| pt.plant_id}
+      - unique_plants.each do |planting_time|
         .plant{:class => [planting_time.plant.sun_requirements, planting_time.plant.difficulty, planting_time.plant.container_capable]}
           .name= planting_time.plant.name
           .image
@@ -33,16 +34,16 @@
     %label
       %input{:name => "email", :type => :text, :class => "input-medium", :placeholder => "your email"}
       %input{:type => "submit", :class => "btn", :value => "Signup!"}
-  .plant-details
-    - @planting_times.uniq{|pt| pt.plant_id}.each do |planting_time|
-      .plant.hidden{:id => planting_time.plant.id}
-        .name= planting_time.plant.name
-        %p
-          This is a very long description of stuff
-        %p
-          another paragraph
-        %p
-          And yet one more
+    .plant-details
+      - unique_plants.each do |planting_time|
+        .plant.hidden{:id => planting_time.plant.id}
+          .name= planting_time.plant.name
+          %p
+            This is a very long description of stuff
+          %p
+            another paragraph
+          %p
+            And yet one more
   %p  
     - forecast = WeatherUnderground.get_forecast_in_json(params[:postal_code])
   - if forecast.present?
