@@ -23,7 +23,7 @@
       Show container plants only
   .plants-list
     - if @planting_times.present?
-      - @planting_times.each do |planting_time|
+      - @planting_times.uniq{|pt| pt.plant_id}.each do |planting_time|
         .plant{:class => [planting_time.plant.sun_requirements, planting_time.plant.difficulty, planting_time.plant.container_capable]}
           .name= planting_time.plant.name
           .image
