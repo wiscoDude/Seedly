@@ -32,11 +32,17 @@
     %h4 Sign up Free
     %label
       %input{:name => "email", :type => :text, :class => "input-medium", :placeholder => "your email"}
-    %input{:type => "submit", :class => "btn", :value => "Signup!"}
+      %input{:type => "submit", :class => "btn", :value => "Signup!"}
   .plant-details
-    - @planting_times.each do |planting_time|
-      .plant{:id => planting_time.plant.id}
+    - @planting_times.uniq{|pt| pt.plant_id}.each do |planting_time|
+      .plant.hidden{:id => planting_time.plant.id}
         .name= planting_time.plant.name
+        %p
+          This is a very long description of stuff
+        %p
+          another paragraph
+        %p
+          And yet one more
   %p  
     - forecast = WeatherUnderground.get_forecast_in_json(params[:postal_code])
   - if forecast.present?
