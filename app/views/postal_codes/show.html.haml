@@ -6,8 +6,8 @@
   %p
     Your Zip
     = params[:postal_code]
-    = link_to "change", "#", :"data-toggle" => "collapse", :"data-target" => "#lookup", :id => "show_lookup_form"
-#lookup{:class => @postal_code.blank? ? '' : 'collapse'}
+    = link_to "change", "#", :id => "show-lookup-form"
+#lookup{:class => @postal_code.blank? ? '' : 'hidden'}
   = render "postal_codes/zip_lookup"
 - if @growing_zone.blank? || @postal_code.blank?
   - if params[:postal_code].present?
@@ -40,22 +40,26 @@
             another paragraph
           %p
             And yet one more
-    %h4 Sign up Free
-    %label
-      %input{:name => "email", :type => :text, :class => "input-medium", :placeholder => "your email"}
-      %input{:type => "submit", :class => "btn", :value => "Signup!"}
+    .signup
+      %h4 Sign up Free
+      %label
+        %input{:name => "email", :type => :text, :class => "input-medium", :placeholder => "your email"}
+        %input{:type => "submit", :class => "btn", :value => "Signup!"}
 
   %p  
     - forecast = WeatherUnderground.get_forecast_in_json(params[:postal_code])
   - if forecast.present?
     %h3="Weather Forecast for #{@postal_code.city.titleize}"
     .forecast
-      - forecast.each do |day|
-        - if day["period"].even?
-          .day
-            %p
-              %b= day["title"]
-            = image_tag(day["icon_url"], :title => day["fcttext"])
-            %p= day["fcttext"]
-            %a{:href => "#", :rel => "popover", :"data-content" => day["fcttext"], :"data-original-title" => "Weather for #{day['title']}"} details
+      %table
+        %tr
+          - forecast.each do |day|
+            - if day["period"].even?
+              %td
+                .day
+                  %p
+                    %b= day["title"]
+                  = image_tag(day["icon_url"], :title => day["fcttext"])
+                  %p= day["fcttext"]
+                  %a{:href => "#", :rel => "popover", :"data-content" => day["fcttext"], :"data-original-title" => "Weather for #{day['title']}"} details
             

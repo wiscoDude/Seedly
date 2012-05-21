@@ -15,6 +15,11 @@ $(document).ready(function() {
 		$(div).show();
 		return false;
 	});
+	$('a#show-lookup-form').click(function() {
+		$('#lookup').toggle('medium');
+		$('[name=postal_code]').focus();
+		return false;
+	});
 	$("#only-container").change(function() {
 		if($('#only-container').is(':checked'))
 		{

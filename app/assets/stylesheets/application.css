@@ -54,11 +54,18 @@
 	clear: both;
 }
 
-.forecast .day {
-	width: 200px;
+.forecast table tr td {
 	border: 1px solid #ddd; 
 	padding: 8px;
+	width: 25%;
+	vertical-align: top;
 }
+.forecast .day img {
+	height: 40px;
+	width: 40px;
+	padding-right: 4px;
+	float:left;
+	}
 .forecast p {
 	font-size: 11px;
 }
