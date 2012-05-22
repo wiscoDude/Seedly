@@ -32,7 +32,7 @@
           = link_to "details", "#", :"data-target" => "#{planting_time.plant.id}", :class => "show-plant-details"
     .plant-details
       - unique_plants.each do |planting_time|
-        .plant.hidden{:id => planting_time.plant.id}
+        .plant{:id => planting_time.plant.id, :class => planting_time == unique_plants.first ? '' : 'hidden'}
           .name= planting_time.plant.name
           %p
             = planting_time.plant.description
