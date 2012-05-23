@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120501223928) do
+ActiveRecord::Schema.define(:version => 20120522193125) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -115,6 +115,10 @@ ActiveRecord::Schema.define(:version => 20120501223928) do
     t.text     "harvesting"
     t.string   "drawing_image_url"
     t.text     "growing_directions"
+    t.integer  "days_germination"
+    t.integer  "days_to_harvest"
+    t.integer  "height"
+    t.string   "is_succession"
   end
 
   create_table "postal_codes", :force => true do |t|

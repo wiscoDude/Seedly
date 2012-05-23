@@ -7,7 +7,7 @@ class PlantingTime < ActiveRecord::Base
   validates_uniqueness_of :plant_id, :scope => [:season_type]
   validates_inclusion_of :season_type, :in => proc { SEASON_TYPES }
   
-  SEASON_TYPES = ["spring_inside", "spring_outside", "fall_inside", "fall_outside"]
+  SEASON_TYPES = ["transplant_outside_spring", "transplant_outside_fall", "spring_inside", "spring_outside", "fall_inside", "fall_outside"]
 
   def self.find_all_by_growing_zone_and_date(growing_zone, date)
     PlantingTime.find(:all, :conditions => \
