@@ -32,14 +32,25 @@
           = link_to "details", "#", :"data-target" => "#{planting_time.plant.id}", :class => "show-plant-details"
     .plant-details
       - unique_plants.each do |planting_time|
-        .plant{:id => planting_time.plant.id, :class => planting_time == unique_plants.first ? '' : 'hidden'}
-          .name= planting_time.plant.name
+        - plant = planting_time.plant
+        .plant{:id => plant.id, :class => planting_time == unique_plants.first ? '' : 'hidden'}
+          .name= plant.name
           %p
-            = planting_time.plant.description
+            = plant.description
+          - if @planting_times.find_all {|pt| pt.plant == plant && pt.season_type == "transplant_outside_spring"}.any?
+            %p
+              ="The easiest way to grow #{plant.name.downcase}s is to buy seedlings at your local farmers market.  We have videos on how to choose seedlings and the proper way to plant them."
+          - else
+            %p
+              - day = Time.now.advance(:days => plant.days_to_harvest).to_date.day
+              ="#{plant.name}s take about #{plant.days_to_harvest} days from seed to harvest. Plant now, and they'll be ready about #{Time.now.advance(:days => plant.days_to_harvest).to_date.strftime('%B')} #{day.ordinalize}."
+          - if plant.is_succession
+            %p
+              It's best to plant them in succession. Meaning, plant 1/3 of your plants, wait a couple weeks, and then plant the next 1/3.  This will keep you from being overwhelmed with too many
+              = "#{plant.name}s all at once."
           %p
-            another paragraph
-          %p
-            And yet one more
+            ="We'll send you notifications about when and how to water, when and how to harvest, and we'll even provide you with some #{plant.name.downcase} recipes come harvesting time."
+          
     .signup
       %h4 Sign up Free
       %label
@@ -61,5 +72,3 @@
                     %b= day["title"]
                   = image_tag(day["icon_url"], :title => day["fcttext"])
                   %p= day["fcttext"]
-                  %a{:href => "#", :rel => "popover", :"data-content" => day["fcttext"], :"data-original-title" => "Weather for #{day['title']}"} details
-            

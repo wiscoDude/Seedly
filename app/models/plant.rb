@@ -4,6 +4,8 @@ class Plant < ActiveRecord::Base
   validates_presence_of :name
   validates_inclusion_of :sun_requirements, :in => proc { SUN_TYPES }
   
+  SEEDLING_AGE_IN_DAYS = 21
+  
   SUN_TYPES = ["full", "partial"]
   
   def sun_requirements_icon
@@ -15,6 +17,7 @@ class Plant < ActiveRecord::Base
     else
     end
   end
+  
   def difficulty_icon
     case
     when self.difficulty.include?("easy")
@@ -24,4 +27,9 @@ class Plant < ActiveRecord::Base
     else
     end
   end
+  
+  def time_for_seedlings
+    self.days_to_harvest - self.days_germination - SEEDLING_AGE_IN_DAYS
+  end
+  
 end

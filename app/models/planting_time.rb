@@ -24,7 +24,7 @@ class PlantingTime < ActiveRecord::Base
   def description_of_season
     case
     when self.season_type == "spring_inside"
-      "Start Indoors"
+      "Start Seed Indoors"
     when self.season_type == "spring_outside"
       "Plant Outside"
     end
