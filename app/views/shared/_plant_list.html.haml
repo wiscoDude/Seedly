@@ -1,0 +1,6 @@
+- planting_times.each do |planting_time|
+  .plant{:class => [planting_time.plant.sun_requirements, planting_time.plant.difficulty, planting_time.plant.container_capable]}
+    .name= planting_time.plant.name
+    .image
+      = link_to image_tag(planting_time.plant.drawing_image_url, :class => 'drawing'), "#", :"data-target" => "#{planting_time.plant.id}", :class => "show-plant-details", :title => "View details on growing #{planting_time.plant.name}"
+    = link_to "details", "#", :"data-target" => "#{planting_time.plant.id}", :class => "show-plant-details"
