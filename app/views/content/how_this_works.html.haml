@@ -24,3 +24,11 @@
     = mail_to "philip@seedly.me", "philip@seedly.me"
     and you can also read our blog here
     = link_to "blog.seedly.me", "http://blog.seedly.me"
+  %h2 Try it out
+.hero-unit
+  %h1.small The Easiest Way to Start a Garden
+  %br
+  %center
+    %form{:action => "/lookup_zip", :class => "form-search"}
+      %input{:name => "postal_code", :type => :text, :class => "input home search-query", :placeholder => "your zip", :value => params[:postal_code]}
+      = submit_tag("Get Started &#187;".html_safe, options = {:class => "btn home"})

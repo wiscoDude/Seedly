@@ -4,7 +4,7 @@
     ="#{date} in #{@postal_code.city.titleize} you can plant..."
 - if @postal_code.present?
   %p
-    Your Zip
+    zip:
     = params[:postal_code]
     = link_to "change", "#", :id => "show-lookup-form"
 #lookup{:class => @postal_code.blank? ? '' : 'hidden'}
@@ -75,7 +75,8 @@
   %p  
     - forecast = WeatherUnderground.get_forecast_in_json(params[:postal_code])
   - if forecast.present?
-    %h3="Weather Forecast for #{@postal_code.city.titleize}"
+    %h2 We even keep track of the weather for you!
+    %p="Weather Forecast for #{@postal_code.city.titleize}"
     .forecast
       %table
         %tr
