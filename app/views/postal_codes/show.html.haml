@@ -14,13 +14,11 @@
     %p
       Hmmm, we couldn't find that zip code.
 - else
-  %form{:action => "/users/simple_signup", :class => "form-inline"}
-    %input{:type => "hidden", :name => "zip", :value => params[:postal_code]}
-    .clear
-    %br
-    %label{:id => "show-container-only", :class => "checkbox"}
-      %input{:name => "container", :type => "checkbox", :id => "only-container"}
-      Show container plants only
+  .clear
+  %br
+  %label{:id => "show-container-only", :class => "checkbox"}
+    %input{:name => "container", :type => "checkbox", :id => "only-container"}
+    Show container plants only
   - if @planting_times.present?
     .plants-list
       - unique_plants = @planting_times.uniq{|pt| pt.plant_id}
@@ -65,12 +63,14 @@
             %p= "Our videos and diagrams show exactly how to plant seeds for #{plant.name.downcase}."
           %p
             ="We'll send you notifications about when and how to water, when and how to harvest, and we'll even provide you with some #{plant.name.downcase} recipes come harvesting time."
-          
-    .signup
-      %h4 Sign up Free
-      %label
-        %input{:name => "email", :type => :text, :class => "input-medium", :placeholder => "your email"}
-        %input{:type => "submit", :class => "btn", :value => "Signup!"}
+    - if current_user.blank?
+      .signup
+        %h4 Sign up Free
+        %form{:action => "/users/simple_signup", :class => "form-inline"}
+          %input{:type => "hidden", :name => "zip", :value => params[:postal_code]}
+          %label
+            %input{:name => "email", :type => :text, :class => "input-medium", :placeholder => "your email"}
+            %input{:type => "submit", :class => "btn", :value => "Signup!"}
 
   %p  
     - forecast = WeatherUnderground.get_forecast_in_json(params[:postal_code])
