@@ -52,7 +52,7 @@
           - else
             %p
               - day = Time.now.advance(:days => plant.days_to_harvest).to_date.day
-              ="It takes about #{plant.days_to_harvest} days from seed to harvest. Plant now, and your #{plant.name.downcase} be ready about #{Time.now.advance(:days => plant.days_to_harvest).to_date.strftime('%B')} #{day.ordinalize}."
+              ="It takes about #{plant.days_to_harvest} days from seed to harvest. Plant now, and your #{plant.name.downcase} will be ready about #{Time.now.advance(:days => plant.days_to_harvest).to_date.strftime('%B')} #{day.ordinalize}."
           - if plant.is_succession
             %p
               It's best to plant them in succession. Meaning, plant 1/3 of your plants, wait a couple weeks, and then plant the next 1/3.  This will keep you from being overwhelmed with too many
@@ -60,7 +60,7 @@
           %p
             %b How we help
           - if @planting_times.find_all {|pt| pt.plant == plant && pt.season_type == "transplant_outside_spring"}.any?
-            %p= "We have videos on how to choose seedlings and the proper way to plant them."
+            %p= "We have videos on how to choose #{plant.name.downcase} seedlings and the proper way to plant them."
           - else
             %p= "Our videos and diagrams show exactly how to plant seeds for #{plant.name.downcase}."
           %p
