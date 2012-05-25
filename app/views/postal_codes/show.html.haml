@@ -41,9 +41,14 @@
           .name= plant.name
           %p
             = plant.description
+            
+          %p
+            %b 
+              Growing
+              = plant.name
           - if @planting_times.find_all {|pt| pt.plant == plant && pt.season_type == "transplant_outside_spring"}.any?
             %p
-              ="The easiest way to grow #{plant.name.downcase} is to buy seedlings at your local farmers market.  We have videos on how to choose seedlings and the proper way to plant them."
+              ="The easiest way to grow #{plant.name.downcase} is to buy seedlings at your local farmers market."
           - else
             %p
               - day = Time.now.advance(:days => plant.days_to_harvest).to_date.day
@@ -52,6 +57,12 @@
             %p
               It's best to plant them in succession. Meaning, plant 1/3 of your plants, wait a couple weeks, and then plant the next 1/3.  This will keep you from being overwhelmed with too many
               = "#{plant.name} all at once."
+          %p
+            %b How we help
+          - if @planting_times.find_all {|pt| pt.plant == plant && pt.season_type == "transplant_outside_spring"}.any?
+            %p= "We have videos on how to choose seedlings and the proper way to plant them."
+          - else
+            %p= "Our videos and diagrams show exactly how to plant seeds for #{plant.name}."
           %p
             ="We'll send you notifications about when and how to water, when and how to harvest, and we'll even provide you with some #{plant.name.downcase} recipes come harvesting time."
           
