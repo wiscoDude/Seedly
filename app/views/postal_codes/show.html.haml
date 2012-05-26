@@ -16,9 +16,6 @@
 - else
   .clear
   %br
-  %label{:id => "show-container-only", :class => "checkbox"}
-    %input{:name => "container", :type => "checkbox", :id => "only-container"}
-    Show container plants only
   - if @planting_times.present?
     .plants-list
       - unique_plants = @planting_times.uniq{|pt| pt.plant_id}

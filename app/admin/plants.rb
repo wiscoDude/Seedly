@@ -5,7 +5,7 @@ ActiveAdmin.register Plant do
     end
     column :name
     column :sun_requirements
-    column :difficulty
+    column :quantity_per_square_foot
     column :plant_type
     column :container_capable
     

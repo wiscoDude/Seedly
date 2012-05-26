@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     if @user.save
       # redirect to second page of process
       sign_in(@user)
+      flash[:notice] = "Welcome to Seedly!  <p>Philip will be sending you an email shortly to help get you started.</p>"
       redirect_to '/dashboard'
     else
       redirect_to '/'
