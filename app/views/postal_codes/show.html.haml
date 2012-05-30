@@ -72,7 +72,7 @@
   %p  
     - forecast = WeatherUnderground.get_forecast_in_json(params[:postal_code])
   - if forecast.present?
-    %h2 We even keep track of the weather for you!
+    %h2 We even keep track of the weather!
     %p="Weather Forecast for #{@postal_code.city.titleize}"
     .forecast
       %table

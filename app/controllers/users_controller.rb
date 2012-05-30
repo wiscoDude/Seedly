@@ -14,7 +14,8 @@ class UsersController < ApplicationController
       flash[:notice] = "Welcome to Seedly!  <p>Philip will be sending you an email shortly to help get you started.</p>"
       redirect_to '/dashboard'
     else
-      redirect_to '/'
+      flash[:error] = @user.errors.full_messages.first
+      redirect_to show_zip_path(:postal_code => @user.postal_code)
     end
   end
 end
