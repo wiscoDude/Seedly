@@ -60,14 +60,14 @@
             %p= "Our videos and diagrams show exactly how to plant seeds for #{plant.name.downcase}."
           %p
             ="We'll send you notifications about when and how to water, when and how to harvest, and we'll even provide you with some #{plant.name.downcase} recipes come harvesting time."
-    - if current_user.blank?
-      .signup
-        %h4 Sign up Free
-        %form{:action => "/users/simple_signup", :class => "form-inline"}
-          %input{:type => "hidden", :name => "zip", :value => params[:postal_code]}
-          %label
-            %input{:name => "email", :type => :text, :class => "input-medium", :placeholder => "your email"}
-            %input{:type => "submit", :class => "btn", :value => "Signup!"}
+        - if current_user.blank?
+          .signup
+            %h4 Sign up Free
+            %form{:action => "/users/simple_signup", :class => "form-inline well"}
+              %input{:type => "hidden", :name => "zip", :value => params[:postal_code]}
+              %label
+                %input{:name => "email", :type => :text, :class => "input-medium", :placeholder => "your email"}
+                %input{:type => "submit", :class => "btn", :value => "Signup!"}
 
   %p  
     - forecast = WeatherUnderground.get_forecast_in_json(params[:postal_code])
