@@ -17,5 +17,6 @@ protected
   def setup_email(user)
     @from = "info@seedly.me"
     @sent_on = Time.now
+    content_type = ""
   end
 end
