@@ -1,6 +1,6 @@
 class UserMailer < ActionMailer::Base
   
-  def welcome_email(user)
+  def welcome(user)
     setup_email(user)
     @recipients = user.email
     @bcc = "info@seedly.me"
