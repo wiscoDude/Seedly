@@ -8,7 +8,9 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me,
       :postal_code, :first_name, :last_name, :city, :state, :latitude, :longitude
-      
+  
+  after_create :send_welcome_email
+  
   def get_growing_zone
     record = GrowingZoneZipCode.find_by_zip(self.postal_code)
     record.growing_zone_name if record.present?
@@ -38,5 +40,9 @@ class User < ActiveRecord::Base
   
   def name
     "#{self.first_name} #{self.last_name}".strip
+  end
+  
+  def send_welcome_email
+    UserMailer.welcome_email(self)
   end
 end
