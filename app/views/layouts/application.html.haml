@@ -17,7 +17,7 @@
             
     .container
       .content
-        =render :partial => "shared/flash_messages", :locals => {:flash => flash}
+        = render :partial => "shared/flash_messages", :locals => {:flash => flash}
 
         = yield
       %footer

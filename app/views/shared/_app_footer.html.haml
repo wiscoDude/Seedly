@@ -1,2 +1,3 @@
 %footer
-  //= link_to "sign out", destroy_user_session_path
+  - if current_user.present?
+    = link_to "sign out", destroy_user_session_path

@@ -24,6 +24,7 @@ group :assets do
 end
 
 group :development, :test do
+  gem 'pry'
   gem 'ruby-debug19', :require => 'ruby-debug'
   gem 'heroku'
 end
