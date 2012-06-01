@@ -1,4 +1,5 @@
 class UserMailer < ActionMailer::Base
+  default 'content_type' => 'text/html'
   
   def welcome(user)
     setup_email(user)
@@ -17,6 +18,5 @@ protected
   def setup_email(user)
     @from = "info@seedly.me"
     @sent_on = Time.now
-    content_type = "text/html"
   end
 end
