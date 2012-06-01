@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default 'content_type' => 'text/html'
+  default :content_type => 'text/html'
   
   def welcome(user)
     setup_email(user)
