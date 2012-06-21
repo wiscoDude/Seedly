@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :weather_reading, :foreign_key => "postal_code", :primary_key => "postal_code", :order => :recorded_at
+  has_many :weather_reading, :foreign_key => "postal_code", :primary_key => "postal_code"
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

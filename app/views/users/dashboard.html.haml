@@ -1,8 +1,13 @@
 %h1
   Your Dashboard
-  
+%h2.span3
+  span 3
+%h2.span5
+  span 5
 %p
   Weather lately
-  - @user.weather_reading.each do |reading|
+  - @user.weather_reading.recent.each do |reading|
     %p= reading.recorded_at
     %p= reading.maxtemp.to_s
+    %p= reading.precipitation
+  = @user.weather_reading.recent.collect(&:precipitation).sum
