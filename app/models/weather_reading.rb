@@ -3,5 +3,5 @@ class WeatherReading < ActiveRecord::Base
   attr_accessible :maxtemp, :mintemp, :precipitation, :postal_code, :recorded_at
   validates_uniqueness_of :postal_code, :scope => :recorded_at
   
-  scope :recent, limit(5).order("recorded_at DESC")
+  scope :recent, limit(7).order("recorded_at DESC")
 end

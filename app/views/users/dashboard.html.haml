@@ -1,13 +1,27 @@
 %h1
   Your Dashboard
-%h2.span3
-  span 3
-%h2.span5
-  span 5
-%p
-  Weather lately
-  - @user.weather_reading.recent.each do |reading|
-    %p= reading.recorded_at
-    %p= reading.maxtemp.to_s
-    %p= reading.precipitation
-  = @user.weather_reading.recent.collect(&:precipitation).sum
+.row
+  .span8
+    %p
+      Helpful docs to get you started
+    %ul
+      %li= link_to "Getting Started", "https://seedly.zendesk.com/entries/21554453-getting-started"
+      %li= link_to "Benefits of Raised Beds", "https://seedly.zendesk.com/entries/21562977-benefits-of-raised-beds"
+      %li= link_to "Basic Tools List", "https://seedly.zendesk.com/entries/21554483-tools"
+  .span4
+    %h3
+      #{@user.city.capitalize} weather
+    %p
+      Last #{@user.weather_reading.recent.size} days:
+      %b 
+        = @user.weather_reading.recent.collect(&:precipitation).sum
+      of an inch of rain
+      - @user.weather_reading.recent.each do |reading|
+        %p
+          %b= reading.recorded_at.strftime("%A, %b #{reading.recorded_at.day.ordinalize}")
+        %p
+          %b high:
+          = reading.maxtemp.to_i.to_s
+        %p
+          %b rain:
+          = reading.precipitation
