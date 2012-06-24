@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
       :postal_code, :first_name, :last_name, :city, :state, :latitude, :longitude
   
   after_create :send_welcome_email
-  before_save :update_city
+  after_create :update_city
   
   def get_growing_zone
     record = GrowingZoneZipCode.find_by_zip(self.postal_code)
